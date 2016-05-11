@@ -12,8 +12,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please enter stored Name into Name Check to obtain correct info"
-        android:id="@+id/textView" />
+        android:text="Part A"
+        android:id="@+id/textView"
+        android:singleLine="true"
+        android:layout_alignParentTop="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -81,4 +83,43 @@
         android:layout_above="@+id/info"
         android:layout_toStartOf="@+id/display"
         android:text="Name Check" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START SERVICE"
+        android:id="@+id/start"
+        android:onClick="starter"
+        android:layout_below="@+id/info"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHOW"
+        android:id="@+id/show"
+        android:onClick="showData"
+        android:layout_alignTop="@+id/start"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Display Data for Part B, Which is Harry (hardcoded)"
+        android:id="@+id/data"
+        android:layout_below="@+id/reset"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:id="@+id/reset"
+        android:nestedScrollingEnabled="false"
+        android:onClick="reset"
+        android:layout_below="@+id/show"
+        android:layout_alignStart="@+id/show" />
+
 </RelativeLayout>

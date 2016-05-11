@@ -1,5 +1,6 @@
 package com.example.kchu.shared_pref;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(check.getText().toString(),MODE_PRIVATE);
         TextView info = (TextView) findViewById(R.id.info);
 
-        if(!sharedPreferences.contains(check.getText().toString()))
+        if(sharedPreferences.getString("username","")=="")
         {
             info.setText("Name does not exist\n");
         }
@@ -58,5 +59,28 @@ public class MainActivity extends AppCompatActivity {
             info.append(phoneNo);
 
         }
+    }
+    public void starter(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, StartedService.class);
+        startService(intent);
+    }
+
+
+    public void showData(View view)
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("EXB",MODE_PRIVATE);
+        TextView data = (TextView) findViewById(R.id.data);
+        String name = sharedPreferences.getString("name", "");
+        data.setText(name);
+
+    }
+    public void reset(View view)
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("EXB",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name","");
+        editor.apply();
+
     }
 }
